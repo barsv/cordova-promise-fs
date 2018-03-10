@@ -212,14 +212,15 @@ This problem is solved in CordovaPromiseFS.
 Convert CommonJS to a browser-version:
 ```bash
 npm install webpack -g
+npm install webpack-cli -D
 npm run-script prepublish
 ```
 
 Run tests: Navigate to `/test/index.html`, for example:
 ```bash
-npm install static -g
-static .
-# http://localhost:8080/test/index.html
+npm install static-server -g
+static-server .
+# http://localhost:9080/test/index.html
 ```
 
 Feel free to contribute to this project in any way. The easiest way to support this project is by giving it a star.
