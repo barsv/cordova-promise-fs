@@ -281,7 +281,10 @@ module.exports = function(options){
           if(err.code === 1) {
             resolve(false);
           } else {
-            reject(err);
+            // wrap err into Promises/A+ friendly error so that it will have stack trace
+            var error = new Error('exists failed for [' + path + ']. See innerError for details.');
+            error.innerError = err;
+            reject(error);
           }
         }
       );
@@ -299,7 +302,10 @@ module.exports = function(options){
           if(err.code === 1) {
             resolve(false);
           } else {
-            reject(err);
+            // wrap err into Promises/A+ friendly error so that it will have stack trace
+            var error = new Error('existsDir failed for ' + path + ']. See innerError for details.');
+            error.innerError = err;
+            reject(error);
           }
         }
       );
@@ -556,7 +562,11 @@ module.exports = function(options){
       var attempt = function(err){
         if(transferOptions.retry.length === 0) {
           if(options.debug) console.log('FileTransfer Error: '+serverUrl,err);
-          reject(err);
+          // wrap err into Promises/A+ friendly error so that it will have stack trace
+          var error = new Error('fileTransfer failed from [' + serverUrl + '] to [' 
+            + localPath + ']. See innerError for details.');
+          error.innerError = err;
+          reject(error);
         } else {
 
     		  var transferJob = {
