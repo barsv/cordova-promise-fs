@@ -105,6 +105,8 @@ module.exports = function(options){
     window.FileTransfer = function FileTransfer(){};
     FileTransfer.prototype.download = function download(url,file,win,fail) {
       var xhr = new XMLHttpRequest();
+      if (this.onprogress)
+        xhr.onprogress = this.onprogress;
       xhr.open('GET', url);
       xhr.responseType = "blob";
       xhr.onreadystatechange = function(onSuccess, onError, cb) {
