@@ -112,7 +112,7 @@ module.exports = function(options){
       xhr.onreadystatechange = function(onSuccess, onError, cb) {
         if (xhr.readyState == 4) {
           if(xhr.status === 200 && !this._aborted){
-            write(file,xhr.response).then(win,fail);
+            remove(file).then(write(file, xhr.response)).then(win,fail);
           } else {
             fail(xhr.status);
           }
