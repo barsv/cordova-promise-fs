@@ -112,6 +112,7 @@ module.exports = function(options){
       xhr.onreadystatechange = function(onSuccess, onError, cb) {
         if (xhr.readyState == 4) {
           if(xhr.status === 200 && !this._aborted){
+            // delete file first, because otherwise: https://stackoverflow.com/a/28458829/292787
             remove(file).then(write(file, xhr.response)).then(win,fail);
           } else {
             fail(xhr.status);

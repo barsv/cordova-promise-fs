@@ -4,7 +4,6 @@
   "description": "Cordova FileSystem convienence functions that return promises.",
   "main": "index.js",
   "scripts": {
-    "prepublish": "webpack-cli index.js dist/CordovaPromiseFS.js --output-library CordovaPromiseFS",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +19,5 @@
   ],
   "author": "Mark Marijnissen",
   "license": "MIT",
-  "devDependencies": {
-    "webpack-cli": "^2.0.11",
-    "webpack": "^4.1.1"
-  }
+  "devDependencies": {}
 }

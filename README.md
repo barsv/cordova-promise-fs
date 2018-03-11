@@ -212,8 +212,8 @@ This problem is solved in CordovaPromiseFS.
 Convert CommonJS to a browser-version:
 ```bash
 npm install webpack -g
-npm install webpack-cli -D
-npm run-script prepublish
+npm install webpack-cli -g
+webpack
 ```
 
 Run tests: Navigate to `/test/index.html`, for example:
